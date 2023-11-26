@@ -40,6 +40,7 @@ class RefLoad extends StatefulWidget {
     this.refreshWidgetBuilder,
     this.isCanLoadMore = false,
     this.isCanRefresh = true,
+    this.scrollController,
   });
 
   ///[onRefresh]
@@ -81,6 +82,9 @@ class RefLoad extends StatefulWidget {
   ///[isCanRefresh]
   ///  disable loadMore.
   final bool? isCanRefresh;
+
+  ///
+  final ScrollController? scrollController;
 
   @override
   State<RefLoad> createState() => _RefLoadState();
@@ -143,6 +147,7 @@ class _RefLoadState extends State<RefLoad> {
         return false;
       },
       child: CustomScrollView(
+        controller: widget.scrollController,
         physics: const BouncingScrollPhysics(),
         slivers: internalSlivers,
       ),
