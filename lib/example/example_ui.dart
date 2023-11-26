@@ -23,6 +23,8 @@ class _Content extends StatefulWidget {
 }
 
 class _ContentState extends State<_Content> {
+  final ScrollController controller = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,19 +61,19 @@ class _ContentState extends State<_Content> {
             },
           ),
         ],
-        onLoadMoreWidget: BlocSelector<ExampleCubit, ExampleState, bool>(
-          selector: (e) {
-            return e.loading;
-          },
-          builder: (_, loading) {
-            return loading
-                ? const Padding(
-                    padding: EdgeInsets.only(bottom: 16.0),
-                    child: Text('OnLoadMore'),
-                  )
-                : const SizedBox.shrink();
-          },
-        ),
+        // onLoadMoreWidget: BlocSelector<ExampleCubit, ExampleState, bool>(
+        //   selector: (e) {
+        //     return e.loading;
+        //   },
+        //   builder: (_, loading) {
+        //     return loading
+        //         ? const Padding(
+        //             padding: EdgeInsets.only(bottom: 16.0),
+        //             child: Text('OnLoadMore'),
+        //           )
+        //         : const SizedBox.shrink();
+        //   },
+        // ),
       ),
     );
   }

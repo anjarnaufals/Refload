@@ -134,11 +134,11 @@ class _RefLoadState extends State<RefLoad> {
             e.metrics.extentAfter == 0.0) {
           //loadmore callbak not executed is isCanLoadMore == false
           if (widget.isCanLoadMore!) {
-            if (widget.onLoadMoreWidget != null) {
+            if (widget.onLoadMoreWidget == null) {
               _onLoadMoreInternal.value = true;
             }
             widget.onLoadMore.call().then((_) {
-              if (widget.onLoadMoreWidget != null) {
+              if (widget.onLoadMoreWidget == null) {
                 _onLoadMoreInternal.value = false;
               }
             });
