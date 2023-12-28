@@ -80,7 +80,7 @@ class RefLoad extends StatefulWidget {
   final bool? isCanLoadMore;
 
   ///[isCanRefresh]
-  ///  disable loadMore.
+  ///  disable refresh.
   final bool? isCanRefresh;
 
   ///
@@ -116,7 +116,7 @@ class _RefLoadState extends State<RefLoad> {
     final List<Widget> internalSlivers = [
       CupertinoSliverRefreshControl(
         builder: widget.refreshWidgetBuilder ?? _refreshControlBuilder,
-        //onRefresh callbak not executed is isCanRefresh == false
+        //onRefresh callbak not executed if isCanRefresh == false
         onRefresh: widget.isCanRefresh! ? widget.onRefresh : null,
       ),
       SliverToBoxAdapter(
@@ -132,7 +132,7 @@ class _RefLoadState extends State<RefLoad> {
         if (e.metrics.atEdge &&
             e.direction == ScrollDirection.reverse &&
             e.metrics.extentAfter == 0.0) {
-          //loadmore callbak not executed is isCanLoadMore == false
+          //loadmore callbak not executed if isCanLoadMore == false
           if (widget.isCanLoadMore!) {
             if (widget.onLoadMoreWidget == null) {
               _onLoadMoreInternal.value = true;

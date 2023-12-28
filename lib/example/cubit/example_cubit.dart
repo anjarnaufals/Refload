@@ -18,7 +18,7 @@ class ExampleCubit extends Cubit<ExampleState> {
     final listOfBox = List<ItemBox>.generate(
       20,
       (i) => ItemBox(
-        name: 'ItemBox $i}',
+        name: 'ItemBox $i',
       ),
     );
 
